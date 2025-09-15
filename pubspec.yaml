@@ -1,0 +1,22 @@
+name: solid_test
+description: "App that changes background color on tap."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  cupertino_icons: ^1.0.8
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+  solid_lints: ^0.3.1
+
+flutter:
+  uses-material-design: true
