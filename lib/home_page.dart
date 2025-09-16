@@ -14,29 +14,13 @@ class _HomePageState extends State<HomePage> {
 
   Color? bgColor;
   int colorChangesNumber = 0;
-
-  Color getTextColor(Color color) {
-    int d = 0;
-
-    final double luminance =
-        (0.299 * ((color.r * 255.0).round() & 0xff) +
-            0.587 * ((color.g * 255.0).round() & 0xff) +
-            0.114 * ((color.b * 255.0).round() & 0xff)) / 255;
-
-    if (luminance >= 0.5) {
-      d = 0;
-    } else {
-      d = 255;
-    }
-
-    return Color.fromARGB(255, d, d, d);
-  }
+  final Random random = Random();
 
   void updateBgColor() {
-    final generatedAlpha = Random().nextInt(256);
-    final generatedRed = Random().nextInt(256);
-    final generatedGreen = Random().nextInt(256);
-    final generatedBlue = Random().nextInt(256);
+    final generatedAlpha = random.nextInt(256);
+    final generatedRed = random.nextInt(256);
+    final generatedGreen = random.nextInt(256);
+    final generatedBlue = random.nextInt(256);
 
     final newBgColor = Color.fromARGB(
       generatedAlpha,
@@ -65,8 +49,7 @@ class _HomePageState extends State<HomePage> {
               Text(
                 "Hello there",
                 style: TextStyle(
-                  color: bgColor == null ? Colors.black
-                      : getTextColor(bgColor!),
+                  color: bgColor == null ? Colors.black : Colors.white,
                   fontWeight: FontWeight.w700,
                   fontSize: 16,
                 ),
@@ -93,8 +76,7 @@ class _HomePageState extends State<HomePage> {
                       text: "You changed background color $colorChangesNumber "
                           "${colorChangesNumber == 1 ? "time" : "times"}",
                       style: TextStyle(
-                        color: bgColor == null ? Colors.black
-                            : getTextColor(bgColor!),
+                        color: bgColor == null ? Colors.black : Colors.white,
                         fontWeight: FontWeight.w300,
                         fontSize: 12,
                       ),
